@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('ajax/items', 'App\Http\Controllers\Ajax\ItemsController@index');
+Route::get('items', 'App\Http\Controllers\ItemsController@index');
+

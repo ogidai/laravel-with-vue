@@ -18,7 +18,11 @@
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.')
+            var url = '/ajax/items';
+            axios.get(url).then(function(response){
+            var items = response.data;
+            console.log(items);
+        });
         }
     }
 </script>
