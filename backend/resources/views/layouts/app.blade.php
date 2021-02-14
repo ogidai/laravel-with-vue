@@ -22,7 +22,7 @@
 <body>
     <div id="app">
     <example-component></example-component>
+    <div></div>
     </div>
-    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

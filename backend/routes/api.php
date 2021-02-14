@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Ajax\ItemsController;
+use App\Http\Controllers\ItemController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/items', [ItemController::class, 'index']);
+Route::prefix('/item')->group( function () {
+    Route::post('/store', [ItemsController::class, 'store']);
+    Route::put('/{id}', [ItemsController::class, 'update']);
+    Route::delete('/{id}', [ItemsController::class, 'destroy']);
+    }
+);
